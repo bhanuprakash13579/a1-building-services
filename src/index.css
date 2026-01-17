@@ -1,0 +1,384 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+:root {
+  /* Colors - Premium Light Palette */
+  --primary: #1e293b;
+  /* Slate 800 - Deep, rich dark text */
+  --primary-light: #475569;
+  /* Slate 600 - Secondary text */
+
+  --brand-primary: #0f172a;
+  /* Slate 900 - Primary Brand */
+  --brand-secondary: #334155;
+  /* Slate 700 */
+
+  --accent: #ca8a04;
+  /* Darker Gold/Bronze for contrast on light */
+  --accent-hover: #a16207;
+
+  --bg-body: #f8fafc;
+  /* Slate 50 - Very light grey/white background */
+  --bg-section: #ffffff;
+  /* Pure white for sections */
+
+  --text-main: #0f172a;
+  /* Slate 900 */
+  --text-muted: #64748b;
+  /* Slate 500 */
+  --text-light: #f1f5f9;
+  /* Slate 100 - Text on dark backgrounds */
+
+  --surface: rgba(255, 255, 255, 0.7);
+  /* Glassy Surface Light */
+  --surface-alt: rgba(241, 245, 249, 0.8);
+  /* Slate 100 transparent */
+
+  --border: #e2e8f0;
+  /* Slate 200 */
+  --border-glass: rgba(255, 255, 255, 0.5);
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+
+  /* Typography */
+  --font-main: 'Outfit', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+
+  /* Animation */
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Shadows - Soft & Premium */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --glow: 0 0 15px rgba(202, 138, 4, 0.3);
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button {
+  border: none;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Utilities */
+.container {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+}
+
+.section {
+  padding: var(--spacing-xl) 0;
+  position: relative;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.heading-lg {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--brand-primary);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+}
+
+.heading-md {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 3rem);
+  margin-bottom: var(--spacing-sm);
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+
+.heading-sm {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--brand-secondary);
+  font-weight: 600;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 50px;
+  /* Pill shape */
+  transition: var(--transition);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--brand-primary);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.btn-outline:hover {
+  background: var(--brand-primary);
+  color: white;
+}
+
+/* Glassmorphism & Cards */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  /* Whiter glass */
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--accent);
+}
+
+/* Specific Component Styles can go here or be utility-based in JS */
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.nav-scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+  padding: 1rem 0;
+}
+
+.nav-transparent {
+  background: transparent;
+  padding: 1.5rem 0;
+}
+
+/* Form Elements */
+input,
+textarea {
+  width: 100%;
+  padding: 1rem;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  color: var(--text-main);
+  font-family: inherit;
+  transition: var(--transition);
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--accent);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+/* Custom decorative elements */
+.blob {
+  position: absolute;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* Watermark Background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vh;
+  /* Use vh/vh to keep it square/round */
+  height: 60vh;
+  background-image: url('/round_logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* Using the pre-prepared round logo */
+  opacity: 0.04;
+  z-index: -2;
+  pointer-events: none;
+  filter: grayscale(100%);
+  border-radius: 50%;
+  /* Circular Watermark */
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

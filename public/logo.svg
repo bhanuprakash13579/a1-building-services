@@ -1,0 +1,14 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- House Icon (Deep Blue) -->
+  <path d="M40 90 L100 40 L160 90 V170 H40 V90 Z" fill="#0F172A" stroke="#0F172A" stroke-width="10" stroke-linejoin="round"/>
+  
+  <!-- Door cutout (Optional, makes it look more like a house) -->
+  <rect x="85" y="130" width="30" height="40" fill="white"/>
+
+  <!-- Water Drop (Gold/Accent) - Overlapping slightly or positioned centrally -->
+  <!-- Styling it as a large drop integrating with the house or in front -->
+  <path d="M120 120 C120 145 105 160 100 160 C95 160 80 145 80 120 C80 105 100 80 100 80 C100 80 120 105 120 120 Z" fill="#D97706" stroke="white" stroke-width="5"/>
+  
+  <!-- Alternative: A large drop replacing part of the house or next to it. 
+       Let's stick to a clean composition: Blue House, Golden Drop inside/overlay. -->
+</svg>
