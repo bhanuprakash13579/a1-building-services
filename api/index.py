@@ -21,6 +21,8 @@ app.add_middleware(
 class ContactForm(BaseModel):
     name: str
     phone: str
+    location: str = ""
+    pincode: str = ""
     service: str = "General"
     message: str = ""
     language: str = "en"
@@ -47,14 +49,15 @@ async def submit_contact(form: ContactForm):
             datetime.datetime.now().isoformat(),
             form.name,
             form.phone,
-            form.service,
+            form.location,
+            form.pincode,
             form.message,
             form.language
         ]]
 
         body = {'values': values}
         service.spreadsheets().values().append(
-            spreadsheetId=spreadsheet_id, range='Sheet1!A:F',
+            spreadsheetId=spreadsheet_id, range='Sheet1!A:H',
             valueInputOption='USER_ENTERED', body=body
         ).execute()
 

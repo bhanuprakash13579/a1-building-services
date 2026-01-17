@@ -45,6 +45,8 @@ const translations = {
       title: 'Get In Touch',
       name: 'Your Name',
       phone: 'Phone Number',
+      location: 'Location / Area',
+      pincode: 'Pincode',
       message: 'Service Needed / Message',
       submit: 'Send Request',
       success: 'Thank you! We will call you shortly.'
@@ -70,6 +72,8 @@ const translations = {
       title: 'సంప్రదించండి',
       name: 'మీ పేరు',
       phone: 'ఫోన్ నంబర్',
+      location: 'ప్రాంతం / ఏరియా',
+      pincode: 'పిన్ కోడ్',
       message: 'మీకు కావలసిన సేవ',
       submit: 'పంపండి',
       success: 'ధన్యవాదాలు! మేము మిమ్మల్ని త్వరలో సంప్రదిస్తాము.'
@@ -346,7 +350,11 @@ const ContactSection = () => {
                 <input name="name" type="text" placeholder={t.contact.name} required />
                 <input name="phone" type="tel" placeholder={t.contact.phone} required />
               </div>
-              <textarea name="message" rows="5" placeholder={t.contact.message} required></textarea>
+              <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
+                <input name="location" type="text" placeholder={t.contact.location} required />
+                <input name="pincode" type="text" placeholder={t.contact.pincode} pattern="[0-9]{6}" maxLength="6" required />
+              </div>
+              <textarea name="message" rows="4" placeholder={t.contact.message} required></textarea>
               <div className="text-center" style={{ marginTop: '1rem' }}>
                 <button type="submit" className="btn btn-primary" disabled={loading}>
                   {loading ? 'Sending...' : t.contact.submit}
