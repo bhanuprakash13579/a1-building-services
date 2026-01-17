@@ -340,8 +340,21 @@ const ContactSection = () => {
           <h3 className="heading-md text-center">{t.contact.title}</h3>
 
           {success ? (
-            <div className="text-center animate-fade-in" style={{ padding: '2rem', color: 'var(--brand-primary)' }}>
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✓</div>
+            <div className="text-center animate-fade-in" style={{ padding: '3rem', color: 'var(--brand-primary)' }}>
+              <div className="animate-pulse" style={{
+                fontSize: '4rem',
+                marginBottom: '1.5rem',
+                width: '80px',
+                height: '80px',
+                background: 'linear-gradient(135deg, var(--accent), #d97706)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 1.5rem',
+                color: 'white',
+                boxShadow: '0 10px 30px rgba(202, 138, 4, 0.3)'
+              }}>✓</div>
               <h3 className="heading-sm">{t.contact.success}</h3>
             </div>
           ) : (
@@ -356,8 +369,20 @@ const ContactSection = () => {
               </div>
               <textarea name="message" rows="4" placeholder={t.contact.message} required></textarea>
               <div className="text-center" style={{ marginTop: '1rem' }}>
-                <button type="submit" className="btn btn-primary" disabled={loading}>
-                  {loading ? 'Sending...' : t.contact.submit}
+                <button type="submit" className="btn btn-primary" disabled={loading} style={{ minWidth: '180px' }}>
+                  {loading ? (
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span className="animate-spin" style={{
+                        width: '18px',
+                        height: '18px',
+                        border: '2px solid rgba(255,255,255,0.3)',
+                        borderTopColor: 'white',
+                        borderRadius: '50%',
+                        display: 'inline-block'
+                      }}></span>
+                      Sending...
+                    </span>
+                  ) : t.contact.submit}
                 </button>
               </div>
             </form>
