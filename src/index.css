@@ -352,7 +352,7 @@ body::before {
   width: 60vh;
   /* Use vh/vh to keep it square/round */
   height: 60vh;
-  background-image: url('/round_logo.png');
+  background-image: url('/round_logo_optimized.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -381,4 +381,28 @@ body::before {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+/* Nav Links - Hidden on mobile */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-fixed .container {
+    padding: 0 0.75rem;
+  }
+
+  .nav-scrolled {
+    padding: 0.5rem 0;
+  }
+
+  .nav-transparent {
+    padding: 0.75rem 0;
+  }
 }

@@ -92,6 +92,7 @@ function App() {
         <ContactSection />
         <Footer />
         <WhatsAppBtn />
+        <ContactFAB />
       </div>
     </LanguageContext.Provider>
   );
@@ -111,14 +112,15 @@ const Navbar = () => {
   return (
     <nav className={`nav-fixed ${scrolled ? 'nav-scrolled' : 'nav-transparent'}`}>
       <div className="container flex justify-between items-center">
+        {/* Logo and Brand */}
         <div className="flex items-center gap-2">
           <div
             style={{
-              height: '50px',
-              width: '50px',
+              height: '40px',
+              width: '40px',
               borderRadius: '50%',
               backgroundImage: 'url(/round_logo_optimized.png)',
-              backgroundSize: 'cover', /* Using the pre-prepared round logo */
+              backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
               border: '2px solid var(--accent)',
@@ -128,32 +130,119 @@ const Navbar = () => {
             role="img"
             aria-label="A1 Building Services Logo"
           />
-          <h1 className="heading-sm" style={{ margin: 0, fontSize: '1.5rem' }}>
+          <h1 className="heading-sm" style={{ margin: 0, fontSize: 'clamp(0.9rem, 3vw, 1.3rem)', whiteSpace: 'nowrap' }}>
             <span className="text-accent">A1</span> Building Services
           </h1>
         </div>
-        <div className="flex gap-8 items-center">
-          <div className="flex gap-4" style={{ display: window.innerWidth < 768 ? 'none' : 'flex' }}>
+
+        {/* Right side - Language toggle only (desktop nav links hidden on mobile via CSS) */}
+        <div className="flex gap-4 items-center">
+          <div className="nav-links">
             {t.nav.map((item, i) => (
               <a key={i} href={`#section-${i}`} className="text-muted hover:text-accent font-medium">
                 {item}
               </a>
             ))}
           </div>
-          <button onClick={toggleLang} className="btn btn-outline" style={{ padding: '0.5rem 1.5rem', fontSize: '0.8rem' }}>
-            {lang === 'en' ? 'తెలుగు' : 'English'}
+          <button onClick={toggleLang} className="btn btn-outline" style={{ padding: '0.4rem 1rem', fontSize: '0.75rem' }}>
+            {lang === 'en' ? 'తెలుగు' : 'EN'}
           </button>
-          <div className="flex gap-2 ml-2">
-            <a href={`tel:${CONTACT.phone}`} className="btn btn-primary flex items-center justify-center" style={{ width: '40px', height: '40px', borderRadius: '50%', padding: 0 }} aria-label="Call Us">
-              <PhoneIcon />
-            </a>
-            <a href={`mailto:${CONTACT.email}`} className="btn btn-alternate flex items-center justify-center" style={{ width: '40px', height: '40px', borderRadius: '50%', padding: 0, background: 'var(--brand-secondary)', color: 'white' }} aria-label="Email Us">
-              <MailIcon />
-            </a>
-          </div>
         </div>
       </div>
     </nav>
+  );
+};
+
+// Floating Contact FAB (Phone + Email)
+const ContactFAB = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        bottom: '2rem',
+        left: '2rem',
+        zIndex: 50,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        gap: '0.75rem'
+      }}
+    >
+      {/* Expandable options */}
+      <div
+        style={{
+          display: open ? 'flex' : 'none',
+          flexDirection: 'column',
+          gap: '0.5rem',
+          animation: 'fadeIn 0.2s ease'
+        }}
+      >
+        <a
+          href={`tel:${CONTACT.phone}`}
+          style={{
+            width: '48px',
+            height: '48px',
+            borderRadius: '50%',
+            background: 'var(--accent)',
+            color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            transition: 'transform 0.2s'
+          }}
+          aria-label="Call Us"
+        >
+          <PhoneIcon />
+        </a>
+        <a
+          href={`mailto:${CONTACT.email}`}
+          style={{
+            width: '48px',
+            height: '48px',
+            borderRadius: '50%',
+            background: 'var(--brand-secondary)',
+            color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            transition: 'transform 0.2s'
+          }}
+          aria-label="Email Us"
+        >
+          <MailIcon />
+        </a>
+      </div>
+
+      {/* Main FAB button */}
+      <button
+        onClick={() => setOpen(!open)}
+        style={{
+          width: '56px',
+          height: '56px',
+          borderRadius: '50%',
+          background: 'var(--brand-primary)',
+          color: 'white',
+          border: 'none',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 4px 15px rgba(15, 23, 42, 0.3)',
+          transition: 'transform 0.3s, background 0.3s',
+          transform: open ? 'rotate(45deg)' : 'rotate(0deg)'
+        }}
+        aria-label="Contact options"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+    </div>
   );
 };
 
