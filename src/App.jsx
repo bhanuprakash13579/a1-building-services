@@ -117,7 +117,7 @@ const Navbar = () => {
               height: '50px',
               width: '50px',
               borderRadius: '50%',
-              backgroundImage: 'url(/round_logo.png)',
+              backgroundImage: 'url(/round_logo_optimized.png)',
               backgroundSize: 'cover', /* Using the pre-prepared round logo */
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
