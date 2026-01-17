@@ -82,6 +82,24 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Smooth transitions for language switch */
+.app-container {
+  transition: opacity 0.15s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+button,
+span,
+input::placeholder,
+textarea::placeholder {
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
 a {
   color: inherit;
   text-decoration: none;
