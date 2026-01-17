@@ -71,6 +71,11 @@
 
 html {
   scroll-behavior: smooth;
+  touch-action: manipulation;
+  /* Prevents double-tap zoom */
+  -webkit-text-size-adjust: 100%;
+  /* Prevents text zoom on orientation change */
+  text-size-adjust: 100%;
 }
 
 body {
