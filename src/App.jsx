@@ -400,6 +400,11 @@ const Footer = () => (
         <span className="heading-sm" style={{ color: 'white' }}>A1 Building Services</span>
       </div>
       <p className="text-muted" style={{ color: '#94a3b8' }}>&copy; {new Date().getFullYear()} A1 Building Services. All rights reserved.</p>
+      <div style={{ marginTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1rem' }}>
+        <p style={{ color: '#64748b', fontSize: '0.875rem' }}>
+          Powered by <span style={{ color: '#f8fafc', fontWeight: 500 }}>Get Some Idea Technologies</span>
+        </p>
+      </div>
     </div>
   </footer>
 );
